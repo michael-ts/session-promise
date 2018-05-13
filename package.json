@@ -1,0 +1,27 @@
+{
+  "name": "session-promise",
+  "version": "1.0.0",
+  "description": "Cross-Platform SQLCipher based sessions",
+  "main": "index.js",
+  "dependencies": {
+    "sanitize": "^2.1.0",
+    "sanitize-filename": "^1.6.1",
+    "tmp": "0.0.33",
+    "cross-sqlcipher-promise": "^1.0.1"
+    "keychain-promise": "^1.0.0"  
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/michael-ts/session-promise.git"
+  },
+  "author": "Michael Schmidt",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/michael-ts/session-promise/issues"
+  },
+  "homepage": "https://github.com/michael-ts/session-promise#readme"
+}
