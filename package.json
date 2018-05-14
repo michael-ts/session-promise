@@ -1,6 +1,6 @@
 {
   "name": "session-promise",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cross-Platform SQLCipher based sessions",
   "main": "index.js",
   "dependencies": {

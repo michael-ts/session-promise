@@ -111,10 +111,10 @@ function SessionKeyLookup(token,name) {
 module.exports = function(config) {
     if (typeof config == "object") {
 	if ("sessiondir" in config) {
-	    SESSIONDIR = config.dir
+	    SESSIONDIR = config.sessiondir
 	}
 	if ("userdir" in config) {
-	    USERDIR = config.dir
+	    USERDIR = config.userdir
 	}
     }
     kc = require("keychain-promise")(USERDIR)
