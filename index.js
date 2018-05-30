@@ -117,7 +117,7 @@ module.exports = function(config) {
 	    USERDIR = config.userdir
 	}
     }
-    kc = require("keychain-promise")(USERDIR)
+    kc = require("keychain-promise")({dir:USERDIR})
     return {
 	Create:SessionCreate,
 	Destroy:SessionDestroy,
