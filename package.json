@@ -4,11 +4,11 @@
   "description": "Cross-Platform SQLCipher based sessions",
   "main": "index.js",
   "dependencies": {
+    "cross-sqlcipher-promise": "^1.0.1",
+    "keychain-promise": "^1.0.1",
     "sanitize": "^2.1.0",
     "sanitize-filename": "^1.6.1",
-    "tmp": "0.0.33",
-    "cross-sqlcipher-promise": "^1.0.1",
-    "keychain-promise": "^1.0.0"  
+    "tmp": "0.0.33"
   },
   "devDependencies": {},
   "scripts": {

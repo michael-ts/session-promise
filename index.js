@@ -22,7 +22,6 @@ function SQLEncode(str) {
 function SessionCreate(user,passwd,_) {
     user = user.replace(/[^A-Za-z0-9_]/gmi,"")
     passwd = SQLEncode(passwd)
-
     // first check if user file exists
     if (!fs.existsSync(USERDIR+user)) {
 	return new Promise((resolve,reject)=>resolve(""))
@@ -62,6 +61,7 @@ function SessionCreate(user,passwd,_) {
     }).then(()=> {
 	return session.slice(session.length-6)+bkey
     }).catch(e=>{
+	console.log(e)
 	return ""
     })
 }
@@ -108,6 +108,15 @@ function SessionKeyLookup(token,name) {
     })
 }
 
+function SessionKeyAdd(token,res,passwd) {
+    return SessionUserPasswd(token).then(up=>{
+	if (!up) return up
+	return kc.Get(up.user,up.passwd)
+    }).then(db=>{
+	return kc.Add(db,res,passwd)
+    })
+}
+
 module.exports = function(config) {
     if (typeof config == "object") {
 	if ("sessiondir" in config) {
@@ -122,6 +131,7 @@ module.exports = function(config) {
 	Create:SessionCreate,
 	Destroy:SessionDestroy,
 	KeyLookup:SessionKeyLookup,
+	KeyAdd:SessionKeyAdd,
 	UserPassword:SessionUserPasswd
     }
 }
