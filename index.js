@@ -108,12 +108,21 @@ function SessionKeyLookup(token,name) {
     })
 }
 
-function SessionKeyAdd(token,res,passwd) {
+function SessionKeyAdd(token,res,group) {
     return SessionUserPasswd(token).then(up=>{
 	if (!up) return up
 	return kc.Get(up.user,up.passwd)
     }).then(db=>{
-	return kc.Add(db,res,passwd)
+	return kc.Add(db,res,group)
+    })
+}
+
+function SessionKeyRemove(token,res) {
+    return SessionUserPasswd(token).then(up=>{
+	if (!up) return up
+	return kc.Get(up.user,up.passwd)
+    }).then(db=>{
+	return kc.Remove(db,res)
     })
 }
 
@@ -132,6 +141,7 @@ module.exports = function(config) {
 	Destroy:SessionDestroy,
 	KeyLookup:SessionKeyLookup,
 	KeyAdd:SessionKeyAdd,
+	KeyRemove:SessionKeyRemove,
 	UserPassword:SessionUserPasswd
     }
 }
